@@ -9,7 +9,7 @@ nav:
       - "concepts/understanding-overflow.md"
       - "concepts/understanding-tokens.md"
   - "👾 Protocol v2":
-      - "TODO.md"
+      - "👾 Protocol v2": "protocol-v2/index.md"
   - "☠️ Protocol v1 (deprecated)":
       - "TODO.md"
   - "👩‍💻 Developers":
@@ -23,4 +23,8 @@ nav:
       - "GitHub": "https://github.com/jbx-protocol"
       - "Twitter": "https://twitter.com/juiceboxETH"
       - "Discord": "https://discord.gg/5JsDvuyCPd"
-theme: readthedocs
+theme: material
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
