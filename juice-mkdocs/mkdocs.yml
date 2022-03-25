@@ -10,6 +10,18 @@ nav:
       - "concepts/understanding-tokens.md"
   - "👾 Protocol v2":
       - "👾 Protocol v2": "protocol-v2/index.md"
+      - "Learn":
+          - "Overview": "protocol-v2/learn/overview.md"
+          - "Architecture": "protocol-v2/learn/architecture.md"
+          - "Glossary":
+              - "Glossary": "protocol-v2/learn/glossary/index.md"
+      - "Build":
+          - "Getting Started": "protocol-v2/build/getting-started.md"
+          - "Project Design": "protocol-v2/build/project-design.md"
+          - "Treasury Extensions":
+              - "Treasury Extensions": "protocol-v2/build/treasury-extensions/index.md"
+      - "API":
+          - "API Overview": "protocol-v2/api/index.md"
   - "☠️ Protocol v1 (deprecated)":
       - "TODO.md"
   - "👩‍💻 Developers":

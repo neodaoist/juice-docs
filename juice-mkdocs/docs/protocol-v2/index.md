@@ -1,71 +1,15 @@
-# Protocol v2 Test
+# 👾 Protocol v2
 
-=== "Step by step"
+Welcome all curious developers to the Juicebox V2 protocol docs.
 
-    **Create a new project for the specified owner, which mints an NFT (ERC-721) into their wallet.**
+The Juicebox protocol is a programmable treasury. Projects can use it to configure how its tokens should be minted when it receives money, and under what conditions funds can be distributed to preprogrammed addresses or claimed by its community. These rules can evolve over funding cycles, allowing people to bootstrap open-ended projects and add structure, constraints, and incentives over time as needed. The protocol is light enough for a group of friends, yet powerful enough for a global network of anons sharing thousands of ETH.
 
-    _Anyone can create a project on an owner's behalf._
+The protocol is nuanced, however. The goal of this section is for you to find any protocol related information that you're looking for. Whether you're auditing, developing your own JB project, creating your own JB extensions, looking for bug bounties, or just looking to learn some solidity, these docs should give you just what you're looking for. These docs should allow you to click around and get a real good deep dive, and should just as easily allow you to find overview information.
 
-    #### Definition
+Looking for general guides on how the protocol works? See the [Learn](learn/overview.md) section.
 
-    ```solidity
-    function createFor(address _owner, JBProjectMetadata calldata _metadata)
-      external
-      override
-      returns (uint256 projectId) { ... }
-    ```
+Looking for guides to launch and program a treasury? See the [Build](build/getting-started.md) section.
 
-    - Arguments:
-      - `_owner` is the address that will be the owner of the project.
-      - `_metadata` is a struct containing metadata content about the project, and domain within which the metadata applies.
-    - The function can be accessed externally by anyone.
-    - The function overrides a function definition from the [`IJBProjects`](../../../interfaces/ijbprojects.md) interface.
-    - The function returns the token ID of the newly created project.
+Looking for an outline of the protocol's API, or a deep dive on each line of code? Click around in the [API](api/contracts/) section. There are bug bounties posted for each documented function.
 
-=== "Code"
-
-    ```solidity
-    /**
-      @notice
-      Create a new project for the specified owner, which mints an NFT (ERC-721) into their wallet.
-
-      @dev
-      Anyone can create a project on an owner's behalf.
-
-      @param _owner The address that will be the owner of the project.
-      @param _metadata A struct containing metadata content about the project, and domain within which the metadata applies.
-
-      @return projectId The token ID of the newly created project.
-    */
-    function createFor(address _owner, JBProjectMetadata calldata _metadata)
-      external
-      override
-      returns (uint256 projectId)
-    {
-      // Increment the count, which will be used as the ID.
-      projectId = ++count;
-
-      // Mint the project.
-      _safeMint(_owner, projectId);
-
-      // Set the metadata if one was provided.
-      if (bytes(_metadata.content).length > 0)
-        metadataContentOf[projectId][_metadata.domain] = _metadata.content;
-
-      emit Create(projectId, _owner, _metadata, msg.sender);
-    }
-    ```
-
-=== "Events"
-
-    | Name                                | Data                                                                                                                                                                                                                                                  |
-    | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | [**`Create`**](../events/create.md)                                                                          | <ul><li><code>uint256 indexed projectId</code></li><li><code>address indexed owner</code></li><li><code>[`JBProjectMetadata`](../../../data-structures/jbprojectmetadata.md)metadata</code></li><li><code>address caller</code></li></ul>
-
-=== "Bug bounty"
-
-    | Category          | Description                                                                                                                            | Reward |
-    | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-    | **Optimization**  | Help make this operation more efficient.                                                                                               | 0.5ETH |
-    | **Low severity**  | Identify a vulnerability in this operation that could lead to an inconvenience for a user of the protocol or for a protocol developer. | 1ETH   |
-    | **High severity** | Identify a vulnerability in this operation that could lead to data corruption or loss of funds.                                        | 5+ETH  |
+Reach out to contributors of the DAO on Discord to call attention to something that could be made more clear. You can also submit PR's directly to the documentation repo [here](https://github.com/jbx-protocol/juice-docs).
