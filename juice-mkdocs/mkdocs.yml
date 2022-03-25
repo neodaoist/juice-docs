@@ -1,0 +1,26 @@
+site_name: Juicedocs
+nav:
+  - "👋 Welcome": "index.md"
+  - "🌱 Getting Started":
+      - Creating a Juicebox Project: "getting-started/creating.md"
+      - Configuring your Project: "getting-started/configuring.md"
+  - "📚 Key Concepts":
+      - "concepts/understanding-funding-cycles.md"
+      - "concepts/understanding-overflow.md"
+      - "concepts/understanding-tokens.md"
+  - "👾 Protocol v2":
+      - "TODO.md"
+  - "☠️ Protocol v1 (deprecated)":
+      - "TODO.md"
+  - "👩‍💻 Developers":
+      - "Contract Addresses": "developers/contract-addresses.md"
+      - "Integration Guide": "developers/integration-guide.md"
+      - "Subgraph": "developers/subgraph.md"
+  - "🙌 Hiring":
+      - "hiring/join-the-team.md"
+  - "🔗 Links":
+      - "Juicebox.money": "http://juicebox.money"
+      - "GitHub": "https://github.com/jbx-protocol"
+      - "Twitter": "https://twitter.com/juiceboxETH"
+      - "Discord": "https://discord.gg/5JsDvuyCPd"
+theme: readthedocs
